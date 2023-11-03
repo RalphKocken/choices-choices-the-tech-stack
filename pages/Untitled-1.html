@@ -1,0 +1,23 @@
+<div class="toggle-numbers-or-names">
+    <span class="toggle-names"  :class="{'deselect-text': showJerseyNumbers, 'select-text': !showJerseyNumbers }">Player names</span>
+    <div class="toggle" :class="{'switchToggleBall': showJerseyNumbers}" @click="switchNamesToNumbers">
+        <div class="toggle-ball"></div>
+    </div>
+    <p class="toggle-jerseys" :class="{'deselect-text': !showJerseyNumbers, 'select-text': showJerseyNumbers }">Jersey numbers</p>
+</div>
+<div class="stats-selector">
+    <div class="scored-by">
+        <span class="scored-by-title">Scored By</span>
+        <div v-if="!showJerseyNumbers" class="select-name">
+            <div class="name" v-for="(player) in players">
+                <span>{{ player.jerseyNumber }}</span>
+                <span>{{ player.name }}</span>
+            </div>
+        </div>
+        <div v-else class="select-number">
+            <div class="number" v-for="(player) in players">
+                <span>{{ player.jerseyNumber }}</span>
+            </div>
+        </div>
+    </div>
+</div>
